@@ -32,7 +32,7 @@ parent(princess_diana, prince_william).
 husband(X, Y) :- male(X), married(X, Y).
 wife(X, Y) :- female(X), married(X, Y).
 father(X, Y) :- male(X), parent(X, Y).
-mother(X, Y) :- female(x), parent(X, Y).
+mother(X, Y) :- female(X), parent(X, Y).
 child(X, Y) :- parent(Y, X).
 son(X, Y) :- parent(Y, X), male(X).
 daughter(X, Y) :- parent(Y, X), female(X).
