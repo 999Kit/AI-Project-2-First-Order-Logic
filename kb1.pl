@@ -28,29 +28,18 @@ female(savannah_phillips).
 female(isla_phillips).
 female(mia_grace_tindall).
 
-mar1(prince_phillip, queen_elizabeth_ii).
-mar1(prince_charles, camilla_parker_bowles).
-mar1(sophie_rhys_jones, prince_edward).
-mar1(prince_william, kate_middleton).
-mar1(autumn_kelly, peter_phillips).
-mar1(zara_phillips, mike_tindall).
+married(prince_phillip, queen_elizabeth_ii).
+married(prince_charles, camilla_parker_bowles).
+married(sophie_rhys_jones, prince_edward).
+married(prince_william, kate_middleton).
+married(autumn_kelly, peter_phillips).
+married(zara_phillips, mike_tindall).
+%married(X, Y) :- married(Y, X).
 
-mar2(X, Y) :- mar1(X, Y).
-married(X, Y) :- marhelper(X, Y, [X]) ; marhelper(Y, X, [Y]).
-
-marhelper(X, Y, Flag) :- mar2(X, Y), \+ member(Y, Flag).
-marhelper(X, Y, Flag) :- mar2(X, Z), \+ member(Z, Flag), marhelper(Z, Y, [Z | Flag]).
-
-
-div1(princess_diana, prince_charles).
-div1(caption_mark_phillips, princess_anne).
-div1(sarah_ferguson, prince_andrew).
-
-div2(X, Y) :- div1(X, Y).
-divorced(X, Y) :- divhelper(X, Y, [X]) ; divhelper(Y, X, [Y]).
-
-divhelper(X, Y, Flag) :- div2(X, Y), \+ member(Y, Flag).
-divhelper(X, Y, Flag) :- div2(X, Z), \+ member(Z, Flag), divhelper(Z, Y, [Z | Flag]).
+divorced(princess_diana, prince_charles).
+divorced(caption_mark_phillips, princess_anne).
+divorced(sarah_ferguson, prince_andrew).
+divorced(X, Y) :- divorced(Y, X).
 
 parent(prince_phillip, prince_charles).
 parent(queen_elizabeth_ii, prince_charles).
@@ -97,7 +86,7 @@ parent(mike_tindall, mia_grace_tindall).
 
 %/* RULES */
 husband(X, Y) :- male(X), female(Y), married(X, Y). 
-wife(X, Y) :- female(X), male(Y), married(X, Y).
+wife(X, Y) :- female(X), male(Y), (married(X, Y); married(Y, X)). 
 father(X, Y) :- male(X), parent(X, Y). 
 mother(X, Y) :- female(X), parent(X, Y). 
 child(X, Y) :- parent(Y,X).
