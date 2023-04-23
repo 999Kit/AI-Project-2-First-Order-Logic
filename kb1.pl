@@ -34,10 +34,12 @@ married(sophie_rhys_jones, prince_edward).
 married(prince_william, kate_middleton).
 married(autumn_kelly, peter_phillips).
 married(zara_phillips, mike_tindall).
+%married(X, Y) :- married(Y, X).
 
 divorced(princess_diana, prince_charles).
 divorced(caption_mark_phillips, princess_anne).
 divorced(sarah_ferguson, prince_andrew).
+divorced(X, Y) :- divorced(Y, X).
 
 parent(prince_phillip, prince_charles).
 parent(queen_elizabeth_ii, prince_charles).
@@ -48,15 +50,14 @@ parent(queen_elizabeth_ii, prince_andrew).
 parent(prince_phillip, prince_edward).
 parent(queen_elizabeth_ii, prince_edward).
 
-
 parent(prince_charles, prince_william).
 parent(princess_diana, prince_william).
 parent(prince_charles, prince_harry).
 parent(princess_diana, prince_harry).
 
-parent(caption_mark_phillips, peter_phillips).
+parent(captain_mark_phillips, peter_phillips).
 parent(princess_anne, peter_phillips).
-parent(caption_mark_phillips, zara_phillips).
+parent(captain_mark_phillips, zara_phillips).
 parent(princess_anne, zara_phillips).
 
 parent(prince_andrew, princess_beatrice).
@@ -85,7 +86,7 @@ parent(mike_tindall, mia_grace_tindall).
 
 %/* RULES */
 husband(X, Y) :- male(X), female(Y), married(X, Y). 
-wife(X, Y) :- female(X), male(Y), married(X, Y). 
+wife(X, Y) :- female(X), male(Y), (married(X, Y); married(Y, X)). 
 father(X, Y) :- male(X), parent(X, Y). 
 mother(X, Y) :- female(X), parent(X, Y). 
 child(X, Y) :- parent(Y,X).
@@ -100,14 +101,10 @@ grandson(X, Y) :- grandchild(X, Y), male(X).
 granddaughter(X, Y) :- grandchild(X, Y), female(X).
 
 sibling(X, Y) :- parent(T, X), parent(T, Y), \+(X = Y).
+sibling(X, Y) :- sibling(Y, X).
 brother(X, Y) :- male(X), sibling(X, Y).
 sister(X, Y) :- female(X), sibling(X, Y).
 aunt(X, Y) :- sister(X, T), parent(T, Y).
 uncle(X, Y) :- brother(X, T), parent(T, Y).
 niece(X, Y) :- daughter(X, T), sibling(Y, T).
 nephew(X, Y) :- son(X, T), sibling(Y, T).
-
-% OWN RULES
-married(X, Y) :- married(Y, X).
-divorced(X, Y) :- divorced(Y, X).
-sibling(X, Y) :- sibling(Y, X).
