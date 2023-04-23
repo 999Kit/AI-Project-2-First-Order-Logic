@@ -1,4 +1,4 @@
-%/* FACTS */
+%/* FACTS dit*/
 male(prince_phillip).
 male(prince_charles).
 male(caption_mark_phillips).
