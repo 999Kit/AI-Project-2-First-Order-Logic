@@ -92,3 +92,8 @@ aunt(X, Y) :- sister(X, T), parent(T, Y).
 uncle(X, Y) :- brother(X, T), parent(T, Y).
 niece(X, Y) :- daughter(X, T), sibling(Y, T).
 nephew(X, Y) :- son(X, T), sibling(Y, T).
+
+% OWN RULES
+married(X, Y) :- married(Y, X).
+divorced(X, Y) :- divorced(Y, X).
+sibling(X, Y) :- sibling(Y, X).
