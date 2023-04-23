@@ -1,7 +1,6 @@
 format of the file:
 QUESTION. (EXPECTED ANSWER)
 
-
 wife(Who, prince_edward). (sophie_rhys_jones)
 grandmother(Who, prince_george). (princess_diana)
 married(prince_charles, camilla_parker_bowles). (true)
