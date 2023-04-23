@@ -40,3 +40,26 @@ grandparent(X, Y) :- parent(X, Z), parent(Z, Y).
 grandmother(X, Y) :- female(X), grandparent(X, Y).
 grandfather(X, Y) :- male(X), grandparent(X, Y).
 grandchild(X, Y) :- grandparent(Y, X).
+
+husband(X, Y) :- male(X), female(Y), married(X, Y). 
+wife(X, Y) :- female(X), male(Y), married(X, Y). 
+father(X, Y) :- male(X), parent(X, Y). 
+mother(X, Y) :- female(X), parent(X, Y). 
+child(X, Y) :- parent(Y,X).
+son(X, Y) :-  male(X), parent(Y, X). 
+daughter(X, Y) :- female(X), parent(Y, X). 
+
+grandparent(X, Y) :- parent(X, T), parent(T, Y). 
+grandmother(X, Y) :- grandparent(X, Y), female(X). 
+grandfather(X, Y) :- grandparent(X, Y), male(X). 
+grandchild(X, Y) :- grandparent(Y, X).
+grandson(X, Y) :- grandchild(X, Y), male(X).
+granddaughter(X, Y) :- grandchild(X, Y), female(X).
+
+sibling(X, Y) :- parent(T, X), parent(T, Y), \+(X = Y).
+brother(X, Y) :- male(X), sibling(X, Y).
+sister(X, Y) :- female(X), sibling(X, Y).
+aunt(X, Y) :- sister(X, T), parent(T, Y).
+uncle(X, Y) :- brother(X, T), parent(T, Y).
+niece(X, Y) :- daughter(X, T), sibling(Y, T).
+nephew(X, Y) :- son(X, T), sibling(Y, T).
