@@ -6,6 +6,11 @@ male(timothy_laurence).
 male(prince_andrew).
 male(prince_edward).
 male(prince_william).
+male(prince_harry).
+male(peter_phillips).
+male(mike_tindall).
+male(james_viscount_severn).
+male(prince_george).
 
 female(queen_elizabeth_ii).
 female(princess_diana).
@@ -13,6 +18,15 @@ female(princess_anne).
 female(camilla_parker_bowles).
 female(sarah_ferguson).
 female(sophie_rhys_jones).
+female(kate_middleton).
+female(autumn_kelly).
+female(zara_phillips).
+female(princess_beatrice).
+female(princess_eugenie).
+female(lady_louise_mountbattern_windsor).
+female(savannah_phillips).
+female(isla_phillips).
+female(mia_grace_tindall).
 
 married(prince_phillip, queen_elizabeth_ii).
 married(prince_charles, camilla_parker_bowles).
@@ -52,13 +66,13 @@ parent(sarah_ferguson, princess_eugenie).
 
 parent(sophie_rhys_jones, james_viscount_severn).
 parent(prince_edward, james_viscount_severn).
-parent(sophie_rhys_jones, lady_louise_mountbattern-windsor).
-parent(prince_edward, lady_louise_mountbattern-windsor).
+parent(sophie_rhys_jones, lady_louise_mountbattern_windsor-windsor).
+parent(prince_edward, lady_louise_mountbattern_windsor-windsor).
 
 parent(prince_william, prince_george).
-parent(prince_william, prince_charlotte).
+parent(prince_william, princess_charlotte).
 parent(kate_middleton, prince_george).
-parent(kate_middleton, prince_charlotte).
+parent(kate_middleton, princess_charlotte).
 
 parent(autumn_kelly, savannah_phillips).
 parent(peter_phillips, savannah_phillips).
