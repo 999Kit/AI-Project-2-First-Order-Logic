@@ -1,4 +1,4 @@
-/* FACTS */
+%/* FACTS */
 male(prince_phillip).
 male(prince_charles).
 male(caption_mark_phillips).
@@ -27,9 +27,13 @@ divorced(sarah_ferguson, prince_andrew).
 
 parent(prince_phillip, prince_charles).
 parent(queen_elizabeth_ii, prince_charles).
-
 parent(prince_phillip, princess_anne).
 parent(queen_elizabeth_ii, princess_anne).
+parent(prince_phillip, prince_andrew).
+parent(queen_elizabeth_ii, prince_andrew).
+parent(prince_phillip, prince_edward).
+parent(queen_elizabeth_ii, prince_edward).
+
 
 parent(prince_charles, prince_william).
 parent(princess_diana, prince_william).
@@ -65,7 +69,7 @@ parent(zara_phillips, mia_grace_tindall).
 parent(mike_tindall, mia_grace_tindall).
 
 
-/* RULES */
+%/* RULES */
 husband(X, Y) :- male(X), female(Y), married(X, Y). 
 wife(X, Y) :- female(X), male(Y), married(X, Y). 
 father(X, Y) :- male(X), parent(X, Y). 
