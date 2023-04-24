@@ -112,7 +112,6 @@ grandson(X, Y) :- grandchild(X, Y), male(X).
 granddaughter(X, Y) :- grandchild(X, Y), female(X).
 
 sibling(X, Y) :- parent(T, X), parent(T, Y), \+(X = Y).
-sibling(X, Y) :- sibling(Y, X).
 brother(X, Y) :- male(X), sibling(X, Y).
 sister(X, Y) :- female(X), sibling(X, Y).
 aunt(X, Y) :- sister(X, T), parent(T, Y).
