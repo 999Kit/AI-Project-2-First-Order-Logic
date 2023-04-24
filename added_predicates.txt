@@ -1,0 +1,25 @@
+cousin(Cousin, Person) :- parent(ParentCousin, Cousin), parent(Parent, Person), sibling(ParentCousin, Parent).
+employed(Person).
+retired(Person).
+tall(Person).
+short(Person).
+introvert(Person).
+extrovert(Person).
+smart(Person).
+religious(Person).
+kind(Person).
+evil(Person).
+admires(Person1, Person2).
+dislikes(Person1, Person2).
+lazy(Person).
+hardworking(Person).
+rich(Person).
+poor(Person).
+popular(Person).
+generous(Person).
+selfish(Person).
+respected(Person) :- kind(Person), generous(Person), smart(Person).
+independent(Person) :- employed(Person), smart(Person), hardworking(Person).
+hated(Person) :- selfish(Person), evil(Person), lazy(Person).
+successful(Person) :- rich(Person), employed(Person), smart(Person), popular(Person).
+carefree(Person) :- poor(Person), lazy(Person).
